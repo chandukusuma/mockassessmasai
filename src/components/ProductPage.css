@@ -1,0 +1,13 @@
+.hidecontent{
+    display: none;
+}
+
+.btn:hover ~ .hidecontent{
+    display:block;
+    border: 1px solid whitesmoke;
+    background-color: aliceblue;
+    width: 90px;
+    justify-content: center;
+    margin-left: 46.3%;
+    position:sticky;
+}
