@@ -1,13 +1,50 @@
+body{
+    background-color: rgb(109, 96, 96);
+}
+.outer_box{
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 20px;
+}
 .hidecontent{
-    display: none;
+    display: block;
 }
 
-.btn:hover ~ .hidecontent{
+.btn:hover + .hidecontent{
     display:block;
     border: 1px solid whitesmoke;
     background-color: aliceblue;
     width: 90px;
     justify-content: center;
     margin-left: 46.3%;
-    position:sticky;
+    position: inherit;
+}
+
+.firstshow{
+    width: 100%;
+    justify-content: center;
+}
+.outer_div{
+    width: 100%;
+    justify-content: center;
+}
+.card_div{
+    justify-content: center;
+    border-radius: 25px;
+    box-shadow: 1%;
+    width: 100%;
+}
+.inner_div{
+    border-radius: 20px;
+}
+.main_div{
+    width: 100%;
+    border-radius: 20px;
+
+}
+.media{
+    height: 400px;
+    border-radius: 20px;
 }

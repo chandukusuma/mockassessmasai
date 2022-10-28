@@ -1,3 +1,24 @@
-.image{
+.cart_main{
+    padding: 30px;
+}
+.image_div{
     width: 100%;
+}
+.btn1{
+    border: none;
+    background-color: rgb(147, 147, 88);
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-right: 2%;
+    padding: 10px;
+}
+.btn2{
+    border: none;
+    background-color: rgb(147, 147, 88);
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-right: 2%;
+    padding: 10px;
 }

@@ -1,9 +1,14 @@
-import { LocalDining } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { SINGLE } from '../redux/Individual/IndivAction';
 import './ProductPage.css'
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 function ProductPage() {
@@ -24,7 +29,7 @@ function ProductPage() {
         const ProductsList = async () => {
             setLoading(true);
 
-            await fetch('https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products')
+            await fetch('https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products?page=1&limit=10&orderBy=desc')
                 .then((res) => {
                     return res.json();
                 })
@@ -71,40 +76,56 @@ function ProductPage() {
                             <p className='filter1' onClick={() => FilterProduct('kids')}>kids</p>
                             <p className='filter2' onClick={() => FilterProduct('women')}>womens</p>
                             <p className='filter3' onClick={() => FilterProduct('homedecor')}>homedecor</p>
+                            <p className='filter3' onClick={() => FilterProduct('men')}>men</p>
 
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className='outer_box'>
                     {
                         dataInside.map((e) => {
                             //console.log(e)
                             return (
-                                <>
-                                    <div onClick={() => {
-                                        send(e);
-                                        {navigate(`/products/${e.id}`)}
-                                    }}>
-                                        <div className='col-md-3 mb-4'>
-                                            <div class='card h-100 text-center p-4' key={e.id}>
-                                                <img src={e.image} class='card-img-top' alt={e.title} height='250px' />
-                                                <div class='card-body'>
-                                                    <h5 class='card-title mb--0'>{e.title}...</h5>
-                                                    <p class='card-text lead fw-bold'>
-                                                        $ {e.price}
-                                                    </p>
-                                                    <p class='card-text lead fw-bold'>
-                                                        {e.brand}
-                                                    </p>
-                                                    <p class='card-text lead fw-bold'>
-                                                        {e.category}
-                                                    </p>
-                                                </div>
+                                <div className='main_div'>
+                                    <div className='outer_div'>
+                                        <div className='inner_div'>
+                                            <div className='card_div' key={e.id} >
+                                                <Card onClick={() => {
+                                                    send(e);
+                                                     {navigate(`/products/${e.id}`)} 
+                                                }}>
+                                                    <CardMedia
+                                                        component="img"
+                                                        alt="green iguana"
+                                                        
+                                                        image={e.image}
+                                                        
+                                                        className='media'
+                                                    />
+                                                    <CardContent>
+                                                        <Typography gutterBottom variant="h5" component="div">
+                                                            {e.title}
+                                                        </Typography>
+                                                        <Typography variant="body2" color="text.secondary">
+                                                           {e.brand}
+                                                        </Typography>
+                                                        <Typography variant="body2" color="text.secondary">
+                                                          $ {e.price}
+                                                        </Typography>
+                                                        <Typography variant="body2" color="text.secondary">
+                                                           {e.category}
+                                                        </Typography>
+                                                    </CardContent>
+                                                    {/* <CardActions>
+                                                        <Button size="small">Share</Button>
+                                                        <Button size="small">Learn More</Button>
+                                                    </CardActions> */}
+                                                </Card>
                                             </div>
                                         </div>
                                     </div>
 
-                                </>
+                                </div>
                             )
                         })
                     }

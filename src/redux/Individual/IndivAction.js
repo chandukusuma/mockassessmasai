@@ -1,6 +1,6 @@
 export const SINGLE = (item) => {
     return {
-        type : 'SINGLE_DATA',
+        type : 'SHOW_DATA',
         payload : item
     }
 }

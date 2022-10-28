@@ -1,16 +1,14 @@
-const INIT = {
-    Spage : []
-}
+const Spage = []
 
-export const SpageReducer = (state = INIT, action) => {
+export const SpageReducer = (state = Spage, action) => {
     switch (action.type){
+
         case 'SHOW_DATA': 
-                return {
-    
-                    Spage: [action.payload]
-                }
-            default:
-                return state
+            return {
+                Spage: [action.payload]
+            }
+            
+        default:
+            return state
     }
 }
-
